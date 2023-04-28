@@ -1,3 +1,4 @@
+import Galeria from "@/Components/Galeria"
 import Pagina from "@/Components/Pagina"
 import apiFilmes from "@/services/apiFilmes"
 import axios from "axios"
@@ -7,7 +8,7 @@ import { Card, Col, Row } from "react-bootstrap"
 
 const Detalhes = ({ ator, imagens, filmes, series }) => {
     return (
-        <Pagina titulo={ator.nome}>
+        <Pagina titulo={ator.name}>
             <Row>
                 <Col mb={3}>
                     <Card.Img variant='top' src={'https://image.tmdb.org/t/p/w500/' + ator.profile_path} />
@@ -18,6 +19,10 @@ const Detalhes = ({ ator, imagens, filmes, series }) => {
                     <p><strong>Biografia:</strong>{ator.biography}</p>
                 </Col>
             </Row>
+            <Galeria titulo="Imagens" lista={imagens} foto="file_path" size={1}/>
+            <Galeria titulo="Filmes" lista={filmes} foto="poster_path" />
+            <Galeria titulo="Series" lista={series} foto="poster_path" />
+
             <h2 className='mt-4'>Imagens</h2>
             <Row>
                 {imagens.map(item => (

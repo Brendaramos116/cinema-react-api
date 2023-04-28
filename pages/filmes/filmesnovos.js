@@ -31,7 +31,7 @@ export default filmesnovos
 
 export async function getServerSideProps(context) {
     
-    const resultado = await apiFilmes.get('/movie/upcoming?language=pt-BR')
+    const resultado = await apiFilmes.get('/movie/up_coming?language=pt-BR')
     const filmesnovos = resultado.data.results
 
     return {
